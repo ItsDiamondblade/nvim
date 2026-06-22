@@ -8,6 +8,7 @@ vim.pack.add({
     { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1.*') },
     { src = 'https://github.com/saghen/blink.indent' },
     { src = 'https://github.com/tpope/vim-fugitive' },
+    { src = 'https://github.com/lewis6991/gitsigns.nvim' },
     { src = 'https://github.com/mason-org/mason.nvim' },
     { src = 'https://github.com/mason-org/mason-lspconfig.nvim' },
 })
@@ -26,8 +27,10 @@ require('mini.cursorword').setup()
 require('mini.icons').setup()
 require('mini.trailspace').setup()
 
+require('gitsigns').setup()
 require('mason').setup()
 require('mason-lspconfig').setup()
+
 require('blink.cmp').setup({
     keymap = {
         preset = 'default',

@@ -2,6 +2,8 @@ vim.g.mapleader = ' '
 
 -- File tree
 vim.keymap.set('n', '<leader>e', '<cmd>Oil<CR>', { desc = 'Open Oil file explorer'})
+vim.keymap.set('n', '<leader>ev', '<cmd>:vert Oil<CR>', { desc = 'Open Oil file explorer to the right'})
+vim.keymap.set('n', '<leader>eh', '<cmd>:hor Oil<CR>', { desc = 'Open Oil file explorer below'})
 
 -- Undotree
 vim.keymap.set('n', '<leader>u', ':Undotree<CR>', { desc = 'Open undotree' })
@@ -12,6 +14,3 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find f
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-
--- Git
-

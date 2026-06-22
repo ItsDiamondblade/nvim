@@ -37,4 +37,4 @@ vim.opt.undofile = true
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.isfname:append("@-@")
 
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes:2"
