@@ -11,6 +11,7 @@ vim.pack.add({
     { src = 'https://github.com/lewis6991/gitsigns.nvim' },
     { src = 'https://github.com/mason-org/mason.nvim' },
     { src = 'https://github.com/mason-org/mason-lspconfig.nvim' },
+    { src = 'https://github.com/L3MON4D3/LuaSnip' },
 })
 
 vim.cmd.packadd('nvim.undotree')
@@ -30,6 +31,7 @@ require('mini.trailspace').setup()
 require('gitsigns').setup()
 require('mason').setup()
 require('mason-lspconfig').setup()
+require('LuaSnip').setup()
 
 require('blink.cmp').setup({
     keymap = {
@@ -37,6 +39,9 @@ require('blink.cmp').setup({
     },
     appearance = { nerd_font_variant = 'mono' },
     completion = { documentation = { auto_show = false, auto_show_delay_ms = 500 } },
+    snippets = {
+        expand = function(snippet) require('luasnip').lsp_extend(snippet) end,
+    },
     sources = { default = { 'lsp', 'path', 'snippets' } },
     fuzzy = {
         implementation = 'prefer_rust_with_warning',
