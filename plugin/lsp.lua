@@ -1,14 +1,12 @@
 vim.pack.add({
     { src = 'https://github.com/neovim/nvim-lspconfig' },
-    { src = 'https://github.com/mason-org/mason.nvim' },
-    { src = 'https://github.com/mason-org/mason-lspconfig.nvim' },
     { src = 'https://github.com/L3MON4D3/LuaSnip' },
     { src = 'https://github.com/rafamadriz/friendly-snippets' },
+    { src = 'https://github.com/folke/lazydev.nvim' },
 })
 
-require('mason').setup()
-require('mason-lspconfig').setup()
-require("luasnip.loaders.from_vscode").lazy_load()
+require('lazydev').setup()
+require('luasnip.loaders.from_vscode').lazy_load()
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
@@ -24,16 +22,9 @@ vim.lsp.config('lua_ls', {
             -- (most likely LuaJIT in the case of Neovim)
             version = 'LuaJIT',
             },
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = {
-                    'vim',
-                    'require'
-                },
-            },
             workspace = {
             -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
+                library = vim.api.nvim_get_runtime_file('', true),
             },
             -- Do not send telemetry data containing a randomized but unique identifier
             telemetry = {

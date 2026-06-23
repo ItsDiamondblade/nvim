@@ -17,3 +17,7 @@ vim.keymap.set('n', '<leader>u', ':Undotree<CR>', { desc = 'Open undotree' })
 
 -- LSP
 vim.keymap.set('n', 'gl', vim.diagnostic.open_float)
+
+-- Open Terminal
+vim.keymap.set('n', '<leader>t', ':split | resize 20 | term<CR>I', { desc = 'Open Terminal' })
+vim.keymap.set('t', '<Esc>', '<C-\\><C-N>', { desc = 'Close Terminal with <Esc>' })
