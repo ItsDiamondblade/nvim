@@ -12,6 +12,7 @@ vim.pack.add({
     { src = 'https://github.com/mason-org/mason.nvim' },
     { src = 'https://github.com/mason-org/mason-lspconfig.nvim' },
     { src = 'https://github.com/L3MON4D3/LuaSnip' },
+    { src = 'https://github.com/rafamadriz/friendly-snippets' },
 })
 
 vim.cmd.packadd('nvim.undotree')
@@ -31,24 +32,31 @@ require('mini.trailspace').setup()
 require('gitsigns').setup()
 require('mason').setup()
 require('mason-lspconfig').setup()
-require('LuaSnip').setup()
+require("luasnip.loaders.from_vscode").lazy_load()
 
 require('blink.cmp').setup({
     keymap = {
-        preset = 'default',
+        preset = 'super-tab',
     },
     appearance = { nerd_font_variant = 'mono' },
     completion = { documentation = { auto_show = false, auto_show_delay_ms = 500 } },
     snippets = {
-        expand = function(snippet) require('luasnip').lsp_extend(snippet) end,
+        preset = 'luasnip',
+        expand = function(snippet)
+            require('luasnip').lsp_extend(snippet)
+        end,
     },
-    sources = { default = { 'lsp', 'path', 'snippets' } },
+    sources = { default = { 'lsp', 'path', 'snippets', 'buffer' } },
     fuzzy = {
         implementation = 'prefer_rust_with_warning',
         prebuilt_binaries = { download = true }
     },
     signature = { enabled = true },
 })
+
+vim.lsp.config['*'] = {
+    capabilities = require('blink.cmp').get_lsp_capabilities(),
+}
 
 -- themes
 vim.pack.add({
