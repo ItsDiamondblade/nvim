@@ -13,7 +13,6 @@ require('oil').setup({
     delete_to_trash = true
 })
 
-
 local statusline = require('mini.statusline')
 statusline.setup()
 statusline.section_location = function()
@@ -26,6 +25,7 @@ require('mini.surround').setup()
 require('mini.cursorword').setup()
 require('mini.icons').setup()
 require('mini.trailspace').setup()
+require('mini.notify').setup()
 
 -- themes
 vim.pack.add({

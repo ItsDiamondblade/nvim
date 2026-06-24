@@ -1,35 +1,53 @@
 vim.pack.add({
     { src = 'https://github.com/neovim/nvim-lspconfig' },
-    { src = 'https://github.com/L3MON4D3/LuaSnip' },
-    { src = 'https://github.com/rafamadriz/friendly-snippets' },
-    { src = 'https://github.com/folke/lazydev.nvim' },
+    { src = 'https://github.com/mason-org/mason-lspconfig.nvim' },
 })
 
-require('lazydev').setup()
-require('luasnip.loaders.from_vscode').lazy_load()
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 vim.lsp.config('*', {
-    capabilities = capabilities,
+    capabilities = require('blink.cmp').get_lsp_capabilities(),
 })
 
 vim.lsp.config('lua_ls', {
     settings = {
         Lua = {
-            runtime = {
-            -- Tell the language server which version of Lua you're using
-            -- (most likely LuaJIT in the case of Neovim)
-            version = 'LuaJIT',
+            runtime = { version = 'LuaJIT' },
+            diagnostics = {
+                globals = {
+                    'vim',
+                    'require',
+                },
             },
             workspace = {
-            -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file('', true),
+                checkThirdParty = false,
+                -- library = { vim.env.VIMRUNTIME },
             },
-            -- Do not send telemetry data containing a randomized but unique identifier
-            telemetry = {
-                enable = false,
-            },
+            telemetry = { enable = false },
         },
+    },
+})
+
+-- vim.lsp.enable({
+--     'basedpyright',
+--     'clangd',
+--     'lua_ls',
+-- })
+
+require('mason-lspconfig').setup({
+    automatic_enable = true,
+})
+
+vim.diagnostic.config({
+    virtual_text = { prefix = '●', spacing = 2 },
+    text = {
+        [vim.diagnostic.severity.ERROR] = 'E',
+        [vim.diagnostic.severity.WARN] = 'W',
+        [vim.diagnostic.severity.INFO] = 'I',
+        [vim.diagnostic.severity.HINT] = 'H',
+    },
+    underline = true,
+    severity_sort = true,
+    float = {
+        border = 'rounded',
+        source = true,
     },
 })
