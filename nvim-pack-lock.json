@@ -13,6 +13,10 @@
       "rev": "8b69b9262891fe81fe728fe6a52fa2a84dd5d5e0",
       "src": "https://github.com/saghen/blink.indent"
     },
+    "conform.nvim": {
+      "rev": "016802de402556da54c36bd7359b441266b01cdd",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
@@ -20,6 +24,10 @@
     "gitsigns.nvim": {
       "rev": "2038c666bd9d8a0b7349a0b6ee00dc83104b9ecf",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "ipynb.nvim": {
+      "rev": "9c06504b2597404eceda7da18fd68c0d55edbb4e",
+      "src": "https://github.com/ajbucci/ipynb.nvim"
     },
     "lazydev.nvim": {
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
@@ -76,6 +84,10 @@
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "render-markdown.nvim": {
+      "rev": "640a3ec6d538bad17c328be373c7cad0293d9589",
+      "src": "https://github.com/meanderingprogrammer/render-markdown.nvim"
     },
     "telescope.nvim": {
       "rev": "427b576c16792edad01a92b89721d923c19ad60f",

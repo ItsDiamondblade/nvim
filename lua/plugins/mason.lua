@@ -9,11 +9,12 @@ require('mason-tool-installer').setup({
     ensure_installed = {
         'basedpyright', -- Python LSP
         'debugpy',      -- Python DAP
+        'black',        -- Python Formatter
         'flake8',       -- Python linter
         'clangd',       -- C++ LSP
         'codelldb',     -- C++ DAP
         'cpplint',      -- C++ linter
-        'lua_ls',       -- lua LSP
+        'lua-language-server',       -- lua LSP
         'luacheck',     -- lua linter
     }
 })

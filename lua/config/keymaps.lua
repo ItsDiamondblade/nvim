@@ -17,6 +17,9 @@ vim.keymap.set('n', '<leader>u', ':Undotree<CR>', { desc = 'Open undotree' })
 
 -- LSP
 vim.keymap.set('n', 'gl', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>cf', function()
+    require('conform').format({ lsp_format = 'fallback', async = true, timeout_ms = 500 })
+end, { desc = 'Format buffer' })
 
 -- Open Terminal
 vim.keymap.set('n', '<leader>t', ':split | resize 20 | term<CR>I', { desc = 'Open Terminal' })

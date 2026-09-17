@@ -26,6 +26,14 @@ vim.lsp.config('lua_ls', {
     },
 })
 
+vim.lsp.config('basedpyright', {
+    settings = {
+        analysis = {
+            autoSearchPaths = true,
+        }
+    }
+})
+
 -- vim.lsp.enable({
 --     'basedpyright',
 --     'clangd',
