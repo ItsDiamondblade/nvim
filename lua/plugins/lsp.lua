@@ -46,11 +46,19 @@ require('mason-lspconfig').setup({
 
 vim.diagnostic.config({
     virtual_text = { prefix = '●', spacing = 2 },
-    text = {
-        [vim.diagnostic.severity.ERROR] = 'E',
-        [vim.diagnostic.severity.WARN] = 'W',
-        [vim.diagnostic.severity.INFO] = 'I',
-        [vim.diagnostic.severity.HINT] = 'H',
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = 'E',
+            [vim.diagnostic.severity.WARN] = 'W',
+            [vim.diagnostic.severity.INFO] = 'I',
+            [vim.diagnostic.severity.HINT] = 'H',
+        },
+        numhl = {
+            [vim.diagnostic.severity.WARN] = "WarningMsg",
+            [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+            [vim.diagnostic.severity.INFO] = "DiagnosticInfo",
+            [vim.diagnostic.severity.HINT] = "DiagnosticHint",
+        },
     },
     underline = true,
     severity_sort = true,
