@@ -24,7 +24,7 @@ require('blink.cmp').setup({
     snippets = {
         preset = 'luasnip',
         expand = function(snippet)
-            require('luasnip').lsp_extend(snippet)
+            require('luasnip').lsp_expand(snippet)
         end,
     },
     sources = {

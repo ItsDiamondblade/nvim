@@ -34,6 +34,13 @@ vim.lsp.config('basedpyright', {
     }
 })
 
+-- vim.lsp.config('clangd', {
+--     cmd = {
+--         'clangd',
+--         "--function-arg-placeholders=0",
+--     },
+-- })
+
 -- vim.lsp.enable({
 --     'basedpyright',
 --     'clangd',
