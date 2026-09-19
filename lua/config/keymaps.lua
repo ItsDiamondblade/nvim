@@ -17,6 +17,7 @@ vim.keymap.set('n', '<leader>u', ':Undotree<CR>', { desc = 'Open undotree' })
 
 -- LSP
 vim.keymap.set('n', 'gl', vim.diagnostic.open_float)
+vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature Help' })
 vim.keymap.set('n', '<leader>cf', function()
     require('conform').format({ lsp_format = 'fallback', async = true, timeout_ms = 500 })
 end, { desc = 'Format buffer' })
